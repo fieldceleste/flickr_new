@@ -1,0 +1,6 @@
+<%= form_for @comment, html: { multipart: true } do |f| %>
+  <%= f.file_field :comment %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>
