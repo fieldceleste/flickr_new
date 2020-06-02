@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <title>Flickr new</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,22 +20,15 @@
         </div>
         <ul class="nav navbar-nav">
           <li><a href="/">Home</a></li>
-          <li><a href="/users/sign_in">Sign in</a></li>
-          <li><a href="/users/sign_up">Sign up</a></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete'%></li>
+          <% @photos.each do |photo| %>
+          <li><%= link_to photo.title, photo_path(photo) %></li>
+        <% end %>
         </ul>
       </div>
     </nav>
     
   </div>
-  <% if user_signed_in? %>
-
-You are signed in, current_user.id = <%= current_user.id %> <br />
-user_session.keys => <%= user_session.keys %>
-
-<% end %>
     <%= yield %>
     
   </body>
 </html>
-
