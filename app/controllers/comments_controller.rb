@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
     @photo = Comment.find(params[:photo_id])
     render :edit
   end
-  
+
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)

@@ -1,7 +1,7 @@
 # _Flickr Clone_
 
 
-#### _By: Celeste Field, Zinfira Safargalieva, Tyler Bowerman _
+#### _By: Celeste Field, Zinfira Safargalieva, Tyler Bowerman_
 
 ## Project Goals
 * _Make an app that lets users upload their photos to share with the world._
