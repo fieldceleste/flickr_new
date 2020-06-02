@@ -1,11 +1,41 @@
-<h1>Flickr</h1>
-<li><%= link_to "Sign Up", new_user_registration_path %></li>
-<li><%= link_to "Sign In", new_user_session_path %></li>
-<li><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete'%></li>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<% if user_signed_in? %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+  
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <h1 class="navbar-brand">Flickr</h1>
+        </div>
+        <ul class="nav navbar-nav">
+          <h4><a href="/">Home</a></li>
+          <h4><a href="/users/sign_in">Sign in</a></h4>
+          <h4><a href="/users/sign_up">Sign up</a></h4>
+          <h4><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete'%></h4>
+        </ul>
+      </div>
+    </nav>
+    
+  </div>
+  <% if user_signed_in? %>
 
 You are signed in, current_user.id = <%= current_user.id %> <br />
 user_session.keys => <%= user_session.keys %>
 
 <% end %>
+    <%= yield %>
+    
+  </body>
+</html>
+
