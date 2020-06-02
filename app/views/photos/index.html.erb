@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flickr new</title>
+    <title>Flickr New</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,24 +11,13 @@
   </head>
 
   <body>
-  <h1>Flickr</h1>
-  <div class="container">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <h1 class="navbar-brand"></h1>
-        </div>
         <ul class="nav navbar-nav">
-          <li><a href="/">Home</a></li>
           <% @photos.each do |photo| %>
-          <li><%= link_to photo.title, photo_path(photo) %></li>
-        <% end %>
-        </ul>
-      </div>
-    </nav>
-    
-  </div>
-    <%= yield %>
+          <li><%= link_to photo.title, photo_path(photo) %></li> 
+  
+        <% end %> 
+         </ul>
+  <%= yield %>
     
   </body>
 </html>
