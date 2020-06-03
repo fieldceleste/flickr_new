@@ -1,4 +1,14 @@
 <h1><%= @photo.title %></h1>
 
 
-<% @photo.image.url(:medium) %>
+<% if @photo.images.attached? %>
+  <% @photo.images.each do |file| %>
+    <ul>
+      <li>
+      <%= image_tag file%>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+<p>No pics yet.</p>
+<% end %>

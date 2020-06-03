@@ -1,26 +1,30 @@
 class PhotosController < ApplicationController
-  def index 
+  def index
     @photos = Photo.all
   end
-  
+
   def new
     @photo = Photo.new
   end
-  
+
   def create
     @photo = Photo.new(photo_params)
+    @photo.images.attach(params[:photo][:image])
     if @photo.save
+      flash[:notice] = "Your Photo has been saved"
       redirect_to photos_path
     else
+      flash[:notice] = "Whoops something went wrong your photo did not save"
       render :new
     end
   end
 
   def show
     @photo = Photo.find(params[:id])
+    render :show
   end
 
-  def edit 
+  def edit
     @photo = Photo.find(params[:id])
   end
 
@@ -32,15 +36,16 @@ class PhotosController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy
     redirect_to "/photos"
   end
-  
+
   private
+
   def photo_params
-    params.require(:photo).permit(:title, :user_id, :image)
+    params.require(:photo).permit(:title, images: [])
   end
 end

@@ -30,7 +30,7 @@ gem 'devise'
 gem 'rubocop'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+# gem 'carrierwave'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -11,12 +11,15 @@
   </head>
 
   <body>
+  <h1>Your Photos</h1>
+  
         <ul class="nav navbar-nav">
           <% @photos.each do |photo| %>
           <li><%= link_to photo.title, photo_path(photo) %></li> 
-  
+          <li><%= link_to photo.images, photo_path(photo) %></li>
         <% end %> 
          </ul>
+        
   <%= yield %>
     
   </body>

@@ -24,12 +24,14 @@
           <li class="link"><a href="/users/sign_in">Sign in</a></li>
           <li class="link"><a href="/users/sign_up">Sign up</a></li>
           <li class="link"><%= link_to "Sign Out", destroy_user_session_path, :method => 'delete'%></li>
+          <li class="link"><a href="/photos">Photos</a></li>
         </ul>
       </div>
     </nav>
     
   </div>
- 
+  <%= flash[:alert] %>
+  <%= flash[:notice] %>
     <%= yield %>
     
   </body>
