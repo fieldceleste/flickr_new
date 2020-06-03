@@ -1,4 +1,4 @@
-class Photo < ActiveRecord::Base
+class Photo < ApplicationRecord
   has_many :comments
   validates :title, presence: true
   has_one_attached :image
